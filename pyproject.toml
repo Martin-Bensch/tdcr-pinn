@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "wheel", "pip"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tdcrpinn"
+authors = [
+    {name = "Martin Bensch", email = "Martin.Bensch@imes.uni-hannover.de"},
+]
+description = "PINN implementation for learning Cosserat rod statics"
+
+readme = "README.md"
+
+requires-python = ">=3.9"
+
+keywords = ["Pytorch", "PINN", "ICRA 2024"]
+
+license = {text = "BSD-3-Clause"}
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Mac, Linux",
+]
+version= "1.0.1"
+dependencies = [
+    "typing",
+    "torch",
+    "torchvision",
+    "jupyterlab",
+    "matplotlib",
+    "scipy",
+    "pandas",
+    "seaborn",
+    "scipy",
+    "tqdm",
+#    "tensorboard",
+    "torch_tb_profiler",
+    "memory_profiler",
+    "pandasgui",
+    "scienceplots"
+]
+
+#dynamic = ["readme"]
+
+#[project.scripts]
+#my-script = "my_package.module:function"
+
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
