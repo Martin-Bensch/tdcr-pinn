@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+mydir=${0:a:h} # location of this script during execution
+/usr/bin/arch -x86_64 $mydir/python "$@" #"$@" means all parameters passed to the script
