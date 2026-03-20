@@ -38,7 +38,8 @@ dependencies = [
     "torch_tb_profiler",
     "memory_profiler",
     "pandasgui",
-    "scienceplots"
+    "scienceplots",
+    "numpy<2"
 ]
 
 #dynamic = ["readme"]

@@ -105,7 +105,7 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
                             #1.18"
-    install_requires=["py", "numpy==1.21.6", "tqdm", "matplotlib",
+    install_requires=["py", "numpy>=1.21.6,<2", "tqdm", "matplotlib",
                       "pyquaternion", "scipy",
                       "pandas", "numba", "xlsxwriter", "openpyxl",
                       "jupyterlab", "ipympl", "ipywidgets", "pandasgui"],
@@ -115,7 +115,7 @@ setup(
     # level" feature, but in the future it may provide more features.
     cmdclass={"build_ext": build_ext},
     zip_safe=False,
-    python_requires=">=3.7, <3.11",
+    python_requires=">=3.9, <3.13",
     #for mac, since Eigen is located under eigen3/....
     include_dirs=extension_headers
 )
