@@ -1,15 +1,15 @@
-from train_nn import train_model
+from .train_nn import train_model
 import numpy as np
-import robot_specs as rs
+from . import robot_specs as rs
 from torch.utils.tensorboard import SummaryWriter
-import pinn_nn as pnn
+from . import pinn_nn as pnn
 import os
 import torch
 import datetime
 from multiprocessing import Pool, RLock
 from copy import deepcopy
 import json
-import datasl as ds
+from . import datasl as ds
 import traceback
 
 

@@ -8,16 +8,16 @@ from torch.utils.data import Dataset, DataLoader, random_split
 import numpy as np
 from torch.utils.tensorboard.writer import SummaryWriter
 from pytdcrsv.static_robot_model import StaticRobotModel
-from _losses import compute_loss, compute_p_loss
-import pinn_nn as pnn
-import robot_specs as rs
-import datasl as dsl
-from robot_specs import CCRnp
-import evaluate_model as em
+from ._losses import compute_loss, compute_p_loss
+from . import pinn_nn as pnn
+from . import robot_specs as rs
+from . import datasl as dsl
+from .robot_specs import CCRnp
+from . import evaluate_model as em
 import time
 from datetime import timedelta
 from numpy.random import binomial
-from _helper_fn import add_individual_losses_in_epoch
+from ._helper_fn import add_individual_losses_in_epoch
 import datetime
 
 

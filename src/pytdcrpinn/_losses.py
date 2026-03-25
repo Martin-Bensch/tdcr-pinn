@@ -1,10 +1,10 @@
 import gc
 import torch
-import _helper_fn as hf
-import _losses_fn as lf
-import _physics_fn as pf
-import pinn_nn as pnn
-from tdcrpinn.icra2024.robot_specs import CCRT
+from . import _helper_fn as hf
+from . import _losses_fn as lf
+from . import _physics_fn as pf
+from . import pinn_nn as pnn
+from .robot_specs import CCRT
 
 def compute_loss(
         nn: pnn.NNApproximator, s_act: torch.Tensor = None,

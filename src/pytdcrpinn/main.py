@@ -1,8 +1,8 @@
-import robot_specs as rs
+from . import robot_specs as rs
 import os
 import datetime
 from copy import deepcopy
-from run_training import dict_unpack_mp
+from .run_training import dict_unpack_mp
 
 if __name__ == "__main__":
 

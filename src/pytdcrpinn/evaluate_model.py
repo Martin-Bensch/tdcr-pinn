@@ -2,10 +2,10 @@ import pandas as pd
 from pytdcrsv.static_robot_model import StaticRobotModel
 import torch
 import numpy as np
-from tdcrpinn.icra2024.pinn_nn import NNApproximator
-import tdcrpinn.icra2024.datasl as dsl
+from .pinn_nn import NNApproximator
+from . import datasl as dsl
 from torch.utils.data import Dataset, DataLoader
-import tdcrpinn.icra2024.robot_specs as rs
+from . import robot_specs as rs
 import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
@@ -112,7 +112,7 @@ def evaluate_euclid(nn_model, data_type="validation",
         # i0, sL, data
         s_act_ref_p_nn_p_sLs0data = []
         for dtype in data_dict:
-            if dtype is "test_bench":
+            if dtype == "test_bench":
                 continue
             i0sLdata = data_dict[dtype]
             # Change batch size

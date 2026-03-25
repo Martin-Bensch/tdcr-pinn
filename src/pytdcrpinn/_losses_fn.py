@@ -1,6 +1,6 @@
 import torch
-from robot_specs import CCRT
-from _physics_fn import hat_mul, rodrigues_uR
+from .robot_specs import CCRT
+from ._physics_fn import hat_mul, rodrigues_uR
 
 
 def compute_pd_loss(p_d, R, v):

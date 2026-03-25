@@ -1,5 +1,5 @@
 import torch
-from robot_specs import CCRT
+from .robot_specs import CCRT
 
 
 def compute_s0_sL_act(s_act):

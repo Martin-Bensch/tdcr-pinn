@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from tdcrpinn.icra2024.robot_specs import CCRT, CCRnp
+from .robot_specs import CCRT, CCRnp
 import numpy as np
 
 torch.autograd.set_detect_anomaly(True)

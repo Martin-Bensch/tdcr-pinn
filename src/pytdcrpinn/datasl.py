@@ -1,13 +1,13 @@
 from torch.utils.data import Dataset, DataLoader
 import torch
-import tdcrpinn.icra2024.robot_specs as rs
+from . import robot_specs as rs
 from pytdcrsv.static_robot_model import StaticRobotModel
 import pytdcrsv.mp_static_robot_model as mpsrm
 import numpy as np
 import time
 import datetime
-import tdcrpinn.icra2024.pinn_nn as pnn
-from tdcrpinn.icra2024.pinn_nn import DEVICE
+from . import pinn_nn as pnn
+from .pinn_nn import DEVICE
 import pickle
 import json
 from torch.distributions import MultivariateNormal as gaussian_dist

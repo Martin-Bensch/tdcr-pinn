@@ -1,16 +1,16 @@
 import time
-from evaluate_model import evaluate_euclid
+from .evaluate_model import evaluate_euclid
 import numpy as np
-import robot_specs as rs
+from . import robot_specs as rs
 from pytdcrsv.static_robot_model import StaticRobotModel
 import pytdcrsv.mp_static_robot_model as mpsrm
 import matplotlib.pyplot as plt
-import datasl as dsl
+from . import datasl as dsl
 import tqdm
 import torch
 import os
 import json
-import pinn_nn as pnn
+from . import pinn_nn as pnn
 import pandas as pd
 import pickle
 

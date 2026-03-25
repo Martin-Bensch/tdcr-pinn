@@ -1,7 +1,7 @@
 import torch
-from robot_specs import CCRT
+from .robot_specs import CCRT
 import numpy as np
-from pinn_nn import DEVICE
+from .pinn_nn import DEVICE
 
 
 def hat_mul(uR):
