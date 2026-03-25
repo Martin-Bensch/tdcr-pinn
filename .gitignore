@@ -19,3 +19,6 @@ build/
 /.tox/log/.lock
 /.tox/dist/pytorch-tutorial-0.0.0.zip
 */.zip
+*.so
+*.dylib
+*.ipynb_checkpoints/

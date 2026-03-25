@@ -8,4 +8,62 @@ through a pybind11 binding.
 
 ---
 
-Work in progress...
+## Installation from a fresh clone
+
+This repository depends on a C++/pybind11 package located in
+`Required/tdcr-lilge-binding` (`pytdcrsv` + `tdrpyb` extension).
+
+### Prerequisites
+
+- Python `>=3.9`
+- A C++ compiler (`clang` or `gcc`)
+- `gsl` and `eigen3` installed on your system
+
+macOS (Homebrew):
+
+```bash
+brew install gsl eigen
+```
+
+Ubuntu/Debian:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y libgsl-dev libeigen3-dev
+```
+
+### Quickstart
+
+```bash
+git clone <your-fork-or-upstream-url>
+cd tdcr-pinn
+bash scripts/bootstrap.sh
+```
+
+The bootstrap script installs:
+1. `pytdcrsv` from `Required/tdcr-lilge-binding`
+2. `tdcrpinn` in editable mode with development extras
+
+### Verify installation
+
+```bash
+make smoke
+```
+
+Expected output includes `smoke-ok`.
+
+## Alternative manual install
+
+```bash
+python3 -m pip install --upgrade pip setuptools wheel
+python3 -m pip install -e ./Required/tdcr-lilge-binding
+python3 -m pip install -e ".[dev]"
+```
+
+## Troubleshooting
+
+- If linker errors mention `gsl`/`gslcblas`, verify the library is installed.
+- If headers for `Eigen` are not found, install `eigen3`.
+- You can provide custom locations with:
+  - `EIGEN_INCLUDE_DIRS=/path/one:/path/two`
+  - `GSL_LIBRARY_DIRS=/path/one:/path/two`

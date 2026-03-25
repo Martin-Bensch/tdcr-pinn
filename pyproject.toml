@@ -24,12 +24,10 @@ classifiers = [
 ]
 version= "1.0.1"
 dependencies = [
-    "typing",
     "torch",
     "torchvision",
     "jupyterlab",
     "matplotlib",
-    "scipy",
     "pandas",
     "seaborn",
     "scipy",
@@ -42,10 +40,15 @@ dependencies = [
     "numpy<2"
 ]
 
-#dynamic = ["readme"]
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
 
-#[project.scripts]
-#my-script = "my_package.module:function"
+[tool.setuptools]
+package-dir = {"" = "src"}
 
-# ... other project metadata fields as specified in:
-#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["pytdcrpinn*"]
