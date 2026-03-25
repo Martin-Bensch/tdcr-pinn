@@ -312,7 +312,6 @@ def train_model(
                                        div_factor=10,
                                        final_div_factor=100,
                                        cycle_momentum=True,
-                                       verbose=False,
                                                         )
     patience = 20
     lr_scheduler_plateau = torch.optim.lr_scheduler.ReduceLROnPlateau(
@@ -324,6 +323,7 @@ def train_model(
     plateau_metric = []
     scheduler_milestone = [int(0.3 * max_epochs)]
     training_iteration = 0
+    last_logged_lr = float(optimizer_adam.param_groups[0]["lr"])
     print("+ ------------------------------- +")
     print("Start training with: \n" +
         f"\t - {len(ds_collocation)} Collocation points \n" +
@@ -464,6 +464,9 @@ def train_model(
         except ZeroDivisionError:
             loss_epoch = sum(losses_epoch)
 
+        # Current learning rate for logging
+        current_lr = float(optimizer_adam.param_groups[0]["lr"])
+
         # Metric for using the reduce learning rate on plateau scheduler
         if len(plateau_metric) < int(patience / 3) :
             plateau_metric.append(loss_epoch)
@@ -476,6 +479,7 @@ def train_model(
             print(f"{name}: "
                   f"\n \t epoch: {epoch} "
                   f"\n \t Average loss of epoch: {loss_epoch}, "
+                  f"\n \t lr: {current_lr:.6g}"
                   f"\n \t elapsed time: {timedelta(seconds=end - start)}")
 
         # Save the PINNs state (weights etc.) and if one decides to resume
@@ -503,7 +507,15 @@ def train_model(
 
         # Use reduce on plateau scheduler
         if lr_on_plateau:
+            lr_before = float(optimizer_adam.param_groups[0]["lr"])
             lr_scheduler_plateau.step(np.mean(plateau_metric))
+            lr_after = float(optimizer_adam.param_groups[0]["lr"])
+            if lr_after != lr_before and lr_after != last_logged_lr:
+                print(
+                    f"{name}: ReduceLROnPlateau updated lr "
+                    f"{lr_before:.6g} -> {lr_after:.6g}"
+                )
+                last_logged_lr = lr_after
 
         if tb_writer is not None and not save_reference:
             lr = float(optimizer_adam.param_groups[0]['lr'])
