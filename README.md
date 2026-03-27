@@ -2,6 +2,17 @@
 
 Code to the ICRA 2024 publication: DOI 10.1109/ICRA57147.2024.10610742
 
+@INPROCEEDINGS{10610742,
+  author={Bensch, Martin and Job, Tim-David and Habich, Tim-Lukas and Seel, Thomas and Schappler, Moritz},
+  booktitle={2024 IEEE International Conference on Robotics and Automation (ICRA)}, 
+  title={Physics-Informed Neural Networks for Continuum Robots: Towards Fast Approximation of Static Cosserat Rod Theory}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={17293-17299},
+  doi={10.1109/ICRA57147.2024.10610742}}
+
+
 This code uses the Cosserat rod statics C++ implementation from 
 https://github.com/SvenLilge/tdcr-modeling
 through a pybind11 binding.
