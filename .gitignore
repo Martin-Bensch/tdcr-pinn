@@ -22,3 +22,4 @@ build/
 *.so
 *.dylib
 *.ipynb_checkpoints/
+.venv/
