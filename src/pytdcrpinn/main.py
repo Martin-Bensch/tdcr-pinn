@@ -14,7 +14,7 @@ if __name__ == "__main__":
                     [("hidden_layer_n",3), ("layer_width",  100),
                      ("phi_range", (300, 360)),
                      ("learning_rate", 1.5 * 1e-4),
-                     ("max_epochs", 1500),
+                     ("max_epochs", 10),
                      ("name_nn", "prec_ref"),
                     # ("nn_opt_name", nn_opt_name), Enter state dictionary
                      # name like above (nn_opt_name) if you watn to resume
